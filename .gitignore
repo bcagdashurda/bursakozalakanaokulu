@@ -1,0 +1,13 @@
+# İşletim sistemi
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Geliştirme sırasında oluşanlar
+.playwright-mcp/
+*.png.tmp
+_gecici.jpg
+_t.jpg
+
+# Vercel
+.vercel/

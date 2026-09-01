@@ -1,0 +1,7 @@
+# Bu dosyalar repoda kalır ama SİTEYE deploy EDİLMEZ.
+# Aksi hâlde bursaozelkozalakanaokulu.com/ANTIGRAVITY-GOREV.md gibi
+# adreslerden herkese açık okunur hâle gelirler — içlerinde müşteriyle
+# ilgili iç notlar var.
+*.md
+!README.md
+yayina-al.ps1
