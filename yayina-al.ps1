@@ -21,6 +21,13 @@ param(
   [switch]$WwwYok
 )
 $ErrorActionPreference = 'Stop'
+# BOM'suz UTF-8 yazici. Windows PowerShell 5.1'in "Set-Content -Encoding utf8"
+# komutu dosyanin basina BOM (EF BB BF) koyuyor; Vercel bunu iceren vercel.json
+# dosyasini "Invalid vercel.json" diye reddediyor, XML ayristiricilar da
+# sitemap.xml'i okuyamiyor. Bu yuzden .NET ile BOM'suz yaziyoruz.
+function Yaz([string]$yol, [string]$icerik){
+  [System.IO.File]::WriteAllText($yol, ($icerik -replace "`r`n","`n"), (New-Object System.Text.UTF8Encoding($false)))
+}
 $root = $PSScriptRoot
 $host_ = if ($WwwYok) { $Domain } else { "www.$Domain" }
 $base  = "https://$host_"
@@ -60,11 +67,11 @@ $c = $c -replace 'https://www\.rodimedya\.com/kozalak-demo/', "$base/"
 # kalan site-koku mutlak yollari
 $c = $c -replace '/kozalak-demo/', '/'
 
-Set-Content $f -Value $c -Encoding utf8 -NoNewline
+Yaz $f $c
 "index.html temizlendi"
 
 # --- 6. Deploy dosyalari --------------------------------------------------
-Set-Content "$root\robots.txt" -Encoding utf8 -Value @"
+Yaz "$root\robots.txt" @"
 User-agent: *
 Allow: /
 
@@ -72,7 +79,7 @@ Sitemap: $base/sitemap.xml
 "@
 
 $bugun = Get-Date -Format 'yyyy-MM-dd'
-Set-Content "$root\sitemap.xml" -Encoding utf8 -Value @"
+Yaz "$root\sitemap.xml" @"
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -84,9 +91,8 @@ Set-Content "$root\sitemap.xml" -Encoding utf8 -Value @"
 </urlset>
 "@
 
-Set-Content "$root\vercel.json" -Encoding utf8 -Value @"
+Yaz "$root\vercel.json" @"
 {
-  "version": 2,
   "cleanUrls": true,
   "headers": [
     {
