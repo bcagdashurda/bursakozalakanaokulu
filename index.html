@@ -3,10 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Başlık yerel arama için: marka önde (marka aramaları), ardından
-     "Yıldırım" + "kreş" — bunlar önceki başlıkta hiç yoktu, dolayısıyla
-     "yıldırım anaokulu" / "bursa kreş" sorgularında eşleşme olmuyordu. -->
-<title>Özel Bursa Kozalak Anaokulu | Yıldırım Anaokulu ve Kreş</title>
+<title>Bursa Kozalak Anaokulu — Minik umutlardan, büyük yarınlara</title>
 <meta name="description" content="Bursa Yıldırım'da 2–6 yaş doğa temelli özel anaokulu ve kreş. Montessori, Reggio Emilia ve Waldorf yaklaşımlarıyla tam gün eğitim.">
 <link rel="icon" href="/ortak/ikon/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/ortak/ikon/favicon-32.png">
@@ -20,18 +17,22 @@
 <meta property="og:url" content="https://bursaozelkozalakanaokulu.com/">
 <meta property="og:title" content="Özel Bursa Kozalak Anaokulu ve Kreş — Minik umutlardan, büyük yarınlara">
 <meta property="og:description" content="Bursa Yıldırım'da 2–6 yaş doğa temelli özel anaokulu ve kreş. Montessori, Reggio Emilia ve Waldorf yaklaşımlarıyla tam gün eğitim.">
-<meta property="og:image" content="https://bursaozelkozalakanaokulu.com/ortak/ikon/og-gorsel.jpg">
-<meta property="og:image:secure_url" content="https://bursaozelkozalakanaokulu.com/ortak/ikon/og-gorsel.jpg">
+<meta property="og:image" content="https://bursaozelkozalakanaokulu.com/ortak/ikon/og-logo.jpg">
+<meta property="og:image:secure_url" content="https://bursaozelkozalakanaokulu.com/ortak/ikon/og-logo.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Bahçede fide diken anaokulu öğrencileri">
+<meta property="og:image:alt" content="Özel Bursa Kozalak Anaokulu logosu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Özel Bursa Kozalak Anaokulu ve Kreş — Minik umutlardan, büyük yarınlara">
 <meta name="twitter:description" content="Bursa Yıldırım'da 2–6 yaş doğa temelli özel anaokulu ve kreş. Montessori, Reggio Emilia ve Waldorf yaklaşımlarıyla tam gün eğitim.">
-<meta name="twitter:image" content="https://bursaozelkozalakanaokulu.com/ortak/ikon/og-gorsel.jpg">
+<meta name="twitter:image" content="https://bursaozelkozalakanaokulu.com/ortak/ikon/og-logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- GSAP jsDelivr'dan geliyordu ama önbağlantı yoktu; DNS+TLS el sıkışması
+     her ziyarette baştan yapılıyordu. Core Web Vitals sıralama sinyali. -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════
@@ -456,7 +457,7 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
   "url": "https://bursaozelkozalakanaokulu.com/",
   "logo": "https://bursaozelkozalakanaokulu.com/ortak/logo.png",
   "image": [
-    "https://bursaozelkozalakanaokulu.com/ortak/ikon/og-gorsel.jpg",
+    "https://bursaozelkozalakanaokulu.com/ortak/ikon/og-logo.jpg",
     "https://bursaozelkozalakanaokulu.com/ortak/gorseller/bahcemiz.jpg",
     "https://bursaozelkozalakanaokulu.com/ortak/gorseller/oyun-sehri.jpg"
   ],
@@ -491,7 +492,10 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
   }],
   "sameAs": [
     "https://www.instagram.com/bursakozalakanaokulu/",
-    "https://www.facebook.com/bursakozalakanaokulu/"
+    "https://www.facebook.com/bursakozalakanaokulu/",
+    "https://okul.com.tr/anaokulu/bursa/ozel-bursa-kozalak-anaokulu-18760",
+    "https://yandex.com.tr/maps/org/ozel_bursa_kozalak_anaokulu_ve_kres/59208211919/",
+    "https://birokul.com/en/kurum/bursa/yildirim/anaokulu-bursa-yildirim-ozel-bursa-kozalak-anaokulu-18760"
   ],
   "audience": { "@type": "EducationalAudience", "educationalRole": "student" },
   "typicalAgeRange": "2-6",
@@ -565,13 +569,13 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
       </div>
     </div>
     <div class="kolaj">
-      <figure class="pol"><img src="/ortak/gorseller/havuz-1.jpg" width="1080" height="1433"
+      <figure class="pol"><img src="/ortak/gorseller/havuz-1.jpg" width="1080" height="1433" fetchpriority="high" decoding="async"
         alt="Yüzme etkinliğinde havuz kenarındaki öğrencimiz"><span>Yüzme etkinliği</span></figure>
-      <figure class="pol"><img src="/ortak/gorseller/bahcemiz.jpg" width="1200" height="1600"
+      <figure class="pol"><img src="/ortak/gorseller/bahcemiz.jpg" width="1200" height="1600" decoding="async"
         alt="Okul bahçemizde bayraklar altında boyama etkinliği"><span>Bahçemiz</span></figure>
-      <figure class="pol"><img src="/ortak/gorseller/yoresel-davul.jpg" width="1201" height="1600"
+      <figure class="pol"><img src="/ortak/gorseller/yoresel-davul.jpg" width="1201" height="1600" decoding="async"
         alt="Yöresel gün etkinliğinde davul çalan öğrencimiz"><span>Yöresel gün</span></figure>
-      <figure class="pol"><img src="/ortak/gorseller/mezuniyet-kucaklasma.jpg" width="1600" height="1200"
+      <figure class="pol"><img src="/ortak/gorseller/mezuniyet-kucaklasma.jpg" width="1600" height="1200" decoding="async"
         alt="Mezuniyet töreninde birbirine sarılan öğrencilerimiz"><span>Mezuniyet</span></figure>
       <div class="puan"><b>4,8</b><small>42 YORUM</small></div>
     </div>
