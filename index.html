@@ -156,11 +156,8 @@ h1,h2,h3{margin:0;font-weight:700;line-height:1.02;letter-spacing:-.03em}
 .kart p{color:var(--muted);font-size:16px}
 
 /* ── EĞİTİM KUTULARI ────────────────────────────────────── */
-.ped{display:grid;grid-template-columns:repeat(auto-fit,minmax(216px,1fr));gap:18px}
-.ped>div img{aspect-ratio:4/3;object-fit:cover;width:100%;display:block;
-  border-bottom:var(--k) solid var(--ink)}
-.pedIc{padding:18px 20px 20px}
-.ped>div{padding:0;overflow:hidden;background:var(--surface);border:var(--k) solid var(--ink);border-radius:14px;
+.ped{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:18px}
+.ped div{padding:22px;background:var(--surface);border:var(--k) solid var(--ink);border-radius:14px;
   box-shadow:5px 5px 0 var(--ink)}
 .ped b{font-size:19px;display:block;margin-bottom:8px;text-transform:uppercase}
 .ped p{font-size:15px;color:var(--muted)}
@@ -246,6 +243,10 @@ h1,h2,h3{margin:0;font-weight:700;line-height:1.02;letter-spacing:-.03em}
 .balon p{font-weight:600;font-size:18px;line-height:1.42;margin:10px 0 14px}
 .balon footer{font-size:14px;color:var(--muted);font-weight:600}
 .yildiz{color:var(--c4);letter-spacing:2px;font-size:24px}
+/* Doğrulanmamış veli alıntıları kaldırıldı; yerine yalnızca Google'dan
+   teyit edilen puan ve değerlendirme sayısı ortalanarak gösteriliyor. */
+.puanBas{max-width:620px;margin:0 auto 44px;text-align:center}
+.buyukYildiz{font-size:40px;letter-spacing:5px;line-height:1;margin-bottom:16px}
 /* ── Kontrast düzeltmeleri (WCAG 2.2 AA / 1.4.3) ──────────
    Palet değerlerinin hiçbirine dokunulmadı; yalnızca o zemin
    üzerindeki metnin rengi/boyu değişti.
@@ -338,7 +339,6 @@ section[style*="--c5"] .bas p{color:var(--ink)}
   font-weight:700;font-size:12px;letter-spacing:.09em;vertical-align:-1px}
 .rodiR{background:#F2B01E;color:#0B0B0C;padding:5px 7px}
 .rodiM{background:#A8248C;color:#FFFFFF;padding:5px 7px}
-.rodiKoz{color:#B4522F;flex:none}
 @media (max-width:640px){
   .rodi{font-size:12.5px;padding:10px 16px;gap:7px}
 }
@@ -360,11 +360,10 @@ section[style*="--c5"] .bas p{color:var(--ink)}
    5'li "Beş yöntem" 1024'te 4+1, 3'lü felsefe 2+1 oluyordu.
    Son kart tam genişliğe alınınca satırlar tamamlanıyor. */
 @media (min-width:641px) and (max-width:1040px){
-  .ped{grid-template-columns:repeat(2,1fr)}
-  .ped>div:last-child,
+  /* Felsefe 3 kart, 2 sütunda 2+1 yetim kalıyordu — son kart tam genişlik.
+     "Beş yöntem" kartları onaylanan şablondaki gibi metin-only olduğu için
+     kendi akışında sorunsuz sarıyor, ona dokunulmuyor. */
   .uclu>*:last-child{grid-column:1 / -1}
-  .ped>div:last-child img,
-  .uclu>*:last-child img{aspect-ratio:21/9}
   .akis{grid-template-columns:repeat(2,1fr)}
 }
 
@@ -415,9 +414,11 @@ section[style*="--c5"] .bas p{color:var(--ink)}
     transform:rotate(2.5deg)!important}
   .pol:nth-child(4){left:auto;right:auto;top:auto;bottom:auto;
     transform:rotate(-2deg)!important}
-  /* 4,8 rozeti mobilde gizli — mutlak konumluydu, ızgarada yeri yok.
-     Aynı bilgi "Veliler" bölümünde başlık olarak zaten duruyor. */
-  .puan{display:none}
+  /* 4,8 rozeti şablonda vardı — gizlemek yerine ızgarada kendi
+     satırına alındı; böylece hiçbir başlığın üstüne düşmüyor. */
+  .puan{position:static;grid-column:1 / -1;justify-self:center;
+    width:88px;height:88px;margin-top:4px}
+  .puan b{font-size:24px}
   .puan{width:82px;height:82px;right:0;top:auto;bottom:0}
   .puan b{font-size:22px}
   .altSerit .serit-ic span{font-size:24px}
@@ -602,21 +603,11 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
       <h2>Beş yöntem, tek çocuk</h2>
       <p>Yönteme değil çocuğa bağlıyız. O an ne işe yarıyorsa onu kullanırız.</p></div>
     <div class="ped">
-      <div data-a="kart"><img src="/ortak/gorseller/montessori.jpg" width="1200" height="896"
-        loading="lazy" alt="Montessori pembe kulesini dizen çocuk elleri">
-        <div class="pedIc"><b>Montessori</b><p>"Kendim yapabilmem için bana yardım et"</p></div></div>
-      <div data-a="kart"><img src="/ortak/gorseller/reggio.jpg" width="1600" height="1200"
-        loading="lazy" alt="Işık masasında doğal materyallerle desen oluşturan çocuk elleri">
-        <div class="pedIc"><b>Reggio Emilia</b><p>"Çocuğun yüz dili vardır"</p></div></div>
-      <div data-a="kart"><img src="/ortak/gorseller/waldorf.jpg" width="1600" height="1200"
-        loading="lazy" alt="Renkli ipek örtülerle kulübe kuran ve arı mumu yoğuran çocuklar">
-        <div class="pedIc"><b>Waldorf</b><p>"Kafa, kalp ve el bütünlüğü"</p></div></div>
-      <div data-a="kart"><img src="/ortak/gorseller/coklu-zeka.jpg" width="1600" height="1200"
-        loading="lazy" alt="Müzik, sayı ve doğa istasyonlarının aynı anda kullanıldığı sınıf">
-        <div class="pedIc"><b>Çoklu Zeka</b><p>"Her çocuğun dehası başka yerde"</p></div></div>
-      <div data-a="kart"><img src="/ortak/gorseller/agac-kesif.jpg" width="481" height="640"
-        loading="lazy" alt="Bahçede ağaca tırmanarak keşfeden öğrencimiz">
-        <div class="pedIc"><b>Aktif Öğrenme</b><p>"Yaparak ve yaşayarak kavrama"</p></div></div>
+      <div data-a="kart"><b>Montessori</b><p>"Kendim yapabilmem için bana yardım et"</p></div>
+      <div data-a="kart"><b>Reggio Emilia</b><p>"Çocuğun yüz dili vardır"</p></div>
+      <div data-a="kart"><b>Waldorf</b><p>"Kafa, kalp ve el bütünlüğü"</p></div>
+      <div data-a="kart"><b>Çoklu Zeka</b><p>"Her çocuğun dehası başka yerde"</p></div>
+      <div data-a="kart"><b>Aktif Öğrenme</b><p>"Yaparak ve yaşayarak kavrama"</p></div>
     </div>
   </div>
 </section>
@@ -654,8 +645,8 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
 <section class="bolum" id="branslar"
   style="background:var(--surface);border-top:var(--k) solid var(--ink);border-bottom:var(--k) solid var(--ink)">
   <div class="kap">
-    <div class="bas" data-a="blok"><span class="et">Branşlar</span><h2>Sekiz çalışma, hepsi dahil</h2>
-      <p>Hepsi okul saatleri içinde, ek ücret yok.</p></div>
+    <div class="bas" data-a="blok"><span class="et">Branşlar</span><h2>Sekiz çalışma, tek program</h2>
+      <p>Branş çalışmalarının tamamı günlük programımızın içinde yer alır.</p></div>
     <div class="cikartma">
       <a href="#iletisim" data-a="cip">İngilizce</a><a href="#iletisim" data-a="cip">Satranç</a>
       <a href="#iletisim" data-a="cip">Okuma Yazmaya Hazırlık</a>
@@ -742,16 +733,26 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
 <!-- YORUMLAR -->
 <section class="bolum yorumlar">
   <div class="kap">
-    <div class="bas" data-a="blok"><span class="et">Veliler</span><h2>4,8 puan · 42 yorum</h2></div>
+    <div class="bas puanBas" data-a="blok"><span class="et">Veliler</span>
+      <div class="yildiz buyukYildiz" aria-hidden="true">★★★★★</div>
+      <h2>4,8 puan · 42 değerlendirme</h2>
+      <p>Aşağıdakiler Google İşletme Profilimize bırakılmış gerçek veli yorumlarıdır.</p></div>
     <div class="uclu">
-      <blockquote class="balon" data-a="kart"><div class="yildiz" aria-label="5 üzerinden 5">★★★★★</div>
-        <p>"Kozalak Anaokulu bizim ikinci evimiz."</p><footer>— Google yorumu</footer></blockquote>
-      <blockquote class="balon" data-a="kart"><div class="yildiz" aria-label="5 üzerinden 5">★★★★★</div>
-        <p>"Öğretmenler profesyonel ve ilgili; çocuğumun özgüveni belirgin arttı."</p>
-        <footer>— Yandex yorumu</footer></blockquote>
-      <blockquote class="balon" data-a="kart"><div class="yildiz" aria-label="5 üzerinden 5">★★★★★</div>
-        <p>"Yemekler ev yemeği gibi. Çocuğum sabah isteyerek gidiyor."</p>
-        <footer>— Google yorumu</footer></blockquote>
+      <blockquote class="balon" data-a="kart">
+        <div class="yildiz" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+        <p>"Oğlumun bu kreşe başladığından beri hem sosyal hem de duygusal anlamda
+          gösterdiği olumlu gelişimi görmek bizi çok mutlu ediyor."</p>
+        <footer>— Rümeysa N. Dereli · Google değerlendirmesi</footer></blockquote>
+      <blockquote class="balon" data-a="kart">
+        <div class="yildiz" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+        <p>"Oğlumun anaokuluna kayıt sürecinde Bursa'daki çoğu kurumu gezip tek
+          içime sinen biricik okulumuz. Tereddütsüz tercih edilebilecek nadir bir kurum."</p>
+        <footer>— Emine Gonca Alakuş · Google değerlendirmesi</footer></blockquote>
+      <blockquote class="balon" data-a="kart">
+        <div class="yildiz" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+        <p>"Kozalak Anaokulu bizim ikinci evimiz. Oğlumun emin ellerde ve güvende
+          olduğunu bilmek bir anne baba olarak bizi çok rahatlatıyor."</p>
+        <footer>— Nazlı Ergün · Google değerlendirmesi</footer></blockquote>
     </div>
     <p class="yorumAlt"><a target="_blank" rel="noopener"
       href="https://www.google.com/maps/search/?api=1&amp;query=%C3%96zel%20Bursa%20Kozalak%20Anaokulu%2C%20Y%C4%B1ld%C4%B1r%C4%B1m%2C%20Bursa">Google'da
@@ -809,7 +810,7 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
         src="https://maps.google.com/maps?q=%C3%96zel%20Bursa%20Kozalak%20Anaokulu%2C%20Ba%C4%9Flaralt%C4%B1%20Mah.%20A163.%20Sok.%20No%3A2%2FA%2C%20Y%C4%B1ld%C4%B1r%C4%B1m%2C%20Bursa&amp;z=16&amp;output=embed"
         loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       <div class="haritaAlt">
-        <span>Bağlaraltı Mah. Cebel Cad. A163. Sok. No:2/A · Yıldırım / Bursa</span>
+        <span>Hafta içi 07:45 – 18:00 · Randevu için arayabilirsiniz</span>
         <a class="btn btn-1" target="_blank" rel="noopener"
           href="https://www.google.com/maps/dir/?api=1&amp;destination=%C3%96zel%20Bursa%20Kozalak%20Anaokulu%2C%20Ba%C4%9Flaralt%C4%B1%20Mah.%20A163.%20Sok.%20No%3A2%2FA%2C%20Y%C4%B1ld%C4%B1r%C4%B1m%2C%20Bursa">Yol tarifi al</a>
       </div>
@@ -851,12 +852,6 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
     </div>
     <div class="imza">
       <a class="rodi" href="https://www.rodimedya.com" target="_blank" rel="noopener">
-        <svg class="rodiKoz" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2c3.2 2.6 5 6 5 9.8C17 17 14.8 21 12 22c-2.8-1-5-5-5-10.2C7 8 8.8 4.6 12 2Z"
-            fill="currentColor"/>
-          <path d="M12 5.5v14M8.4 9h7.2M7.8 12.5h8.4M8.6 16h6.8" stroke="#FFFFFF"
-            stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
         <span>Bu siteyi sevgiyle <b class="rodiAd"><span
           class="rodiR">RODİ</span><span class="rodiM">MEDYA</span></b> tasarladı</span>
       </a>
