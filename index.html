@@ -187,6 +187,44 @@ h1,h2,h3{margin:0;font-weight:700;line-height:1.02;letter-spacing:-.03em}
 .cikartma a:nth-child(4n+3){background:var(--c3);color:var(--on-c3)}
 .cikartma a:nth-child(4n+4){background:var(--c4);color:var(--on-c4)}
 
+/* ── BRANŞ UZMANI KUTUSU ────────────────────────────────────
+   Dokuzuncu branş: adı geçen tek uzmanla yürütülen çalışma.
+   Uzmanın adı ve unvanı bir çipin içine sığmıyor, ama branş
+   çip satırından ÇIKARILMADI: satır bu bölümün branş listesi,
+   başlık da "Dokuz çalışma" diyor. Sekiz çip gösterip
+   dokuzuncuyu yalnız kutuya koymak hem sayıyı tutmuyor hem de
+   yeni branşı diğer sekizin üstünde bir yere koyuyordu.
+   Bu yüzden: çip listede, kutu altında detay olarak duruyor.
+   Adın çipte ve kutu başlığında iki kez geçmesi tekrar değil —
+   liste ve detayın normal ilişkisi.
+   Solda çalışma, sağda uzman. Zemin --c5 — dört çip renginin
+   hiçbiri değil, bu yüzden çiplerle yarışmıyor.
+   Kontrast: --c5 üzerinde --ink 7,47:1 (yukarıdaki denetim
+   notuna bakınız), beyaz üzerinde --muted 6,53:1.
+   375px'te çip iki satıra düşüyor (82px / 57px); ölçüldü,
+   yatay kaydırma yapmıyor, bilerek böyle bırakıldı. */
+.uzmanlik{margin-top:30px;display:grid;grid-template-columns:1fr minmax(290px,440px);
+  background:var(--c5);color:var(--ink);border:var(--k) solid var(--ink);
+  border-radius:16px;box-shadow:var(--g) var(--g) 0 var(--ink);overflow:hidden}
+.uzmanlik .dal{padding:28px 30px}
+/* Başlık dar ekranda iki satıra düşüyor; h1-h3 için genel kural olan
+   line-height:1.02 orada satırları birbirine yapıştırıyordu. */
+.uzmanlik h3{font-size:clamp(20px,2.3vw,26px);text-transform:uppercase;
+  line-height:1.14;margin-bottom:12px}
+.uzmanlik .dal p{font-size:16px;line-height:1.55;max-width:48ch}
+.uzmanlik .kisi{padding:28px 30px;background:var(--surface);
+  border-left:var(--k) solid var(--ink);
+  display:flex;flex-direction:column;justify-content:center}
+.uzmanlik .kisi b{font-size:20px;line-height:1.15;letter-spacing:-.02em}
+.uzmanlik .kisi span{margin-top:9px;font-size:15px;font-weight:600;
+  color:var(--muted);line-height:1.4}
+/* Kutu 860px altında dikeye geçer: sağ sütunun sol konturu üst kontura döner,
+   böylece iki panel arasındaki ayrım her kırılımda korunur. */
+@media (max-width:860px){
+  .uzmanlik{grid-template-columns:1fr}
+  .uzmanlik .kisi{border-left:0;border-top:var(--k) solid var(--ink)}
+}
+
 /* ── GÜN AKIŞI ──────────────────────────────────────────── */
 .akis{display:flex;flex-wrap:wrap;gap:14px}
 .akis div{border:var(--k) solid var(--ink);border-radius:12px;padding:14px 18px;background:var(--surface);
@@ -488,7 +526,7 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-    "opens": "07:45", "closes": "18:00"
+    "opens": "07:30", "closes": "18:00"
   }],
   "sameAs": [
     "https://www.instagram.com/bursakozalakanaokulu/",
@@ -510,7 +548,12 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
       {"@type":"Course","name":"Modern Dans ve Halk Oyunları","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}},
       {"@type":"Course","name":"Müzik ve Orff Çalışmaları","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}},
       {"@type":"Course","name":"Ekoloji ve Kültürel Geziler","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}},
-      {"@type":"Course","name":"Robotik Kodlama","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}}
+      {"@type":"Course","name":"Robotik Kodlama","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}},
+      {"@type":"Course","name":"Üstün Zekalı ve Yeteneklilerin Eğitimi",
+       "description":"Çocuğun ilgi ve potansiyelinin erken yaşta fark edilmesi, oyun temelli destek çalışmaları.",
+       "provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"},
+       "instructor":{"@type":"Person","name":"Cansu Koyuncu","honorificPrefix":"Uzm.",
+         "jobTitle":"Potansiyel Yetenek Geliştirme Uzmanı"}}
     ]
   }
 }
@@ -667,7 +710,7 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
 <section class="bolum" id="branslar"
   style="background:var(--surface);border-top:var(--k) solid var(--ink);border-bottom:var(--k) solid var(--ink)">
   <div class="kap">
-    <div class="bas" data-a="blok"><span class="et">Branşlar</span><h2>Sekiz çalışma, tek program</h2>
+    <div class="bas" data-a="blok"><span class="et">Branşlar</span><h2>Dokuz çalışma, tek program</h2>
       <p>Branş çalışmalarının tamamı günlük programımızın içinde yer alır.</p></div>
     <div class="cikartma">
       <a href="#iletisim" data-a="cip">İngilizce</a><a href="#iletisim" data-a="cip">Satranç</a>
@@ -677,6 +720,18 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
       <a href="#iletisim" data-a="cip">Müzik &amp; Orff</a>
       <a href="#iletisim" data-a="cip">Ekoloji &amp; Kültürel Geziler</a>
       <a href="#iletisim" data-a="cip">Robotik Kodlama</a>
+      <a href="#iletisim" data-a="cip">Üstün Zekalı ve Yeteneklilerin Eğitimi</a>
+    </div>
+    <div class="uzmanlik" data-a="blok">
+      <div class="dal">
+        <h3>Üstün Zekalı ve Yeteneklilerin Eğitimi</h3>
+        <p>Her çocuğun güçlü olduğu bir alan vardır. Bu çalışmada çocuğun ilgisi, merakı ve
+          potansiyeli erken yaşta fark edilir; oyun temelli etkinliklerle kendi hızında desteklenir.</p>
+      </div>
+      <div class="kisi">
+        <b>Uzm. Cansu KOYUNCU</b>
+        <span>Potansiyel Yetenek Geliştirme Uzmanı</span>
+      </div>
     </div>
   </div>
 </section>
@@ -684,10 +739,10 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
 <!-- BİR GÜNÜMÜZ -->
 <section class="bolum" id="gunumuz">
   <div class="kap">
-    <div class="bas" data-a="blok"><span class="et">Bir günümüz</span><h2>07:45 → 18:00</h2>
+    <div class="bas" data-a="blok"><span class="et">Bir günümüz</span><h2>07:30 → 18:00</h2>
       <p>Çocuk ne olacağını bildiğinde rahat olur. Günümüz her gün aynı akışta ilerler.</p></div>
     <div class="akis">
-      <div data-a="cip"><time>07:45</time><p>Karşılama ve serbest oyun</p></div>
+      <div data-a="cip"><time>07:30</time><p>Karşılama ve serbest oyun</p></div>
       <div data-a="cip"><time>08:45</time><p>Kahvaltı</p></div>
       <div data-a="cip"><time>09:30</time><p>Sabah çemberi</p></div>
       <div data-a="cip"><time>10:15</time><p>Atölye zamanı</p></div>
@@ -792,7 +847,7 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
       <ul class="bilgi">
         <li>Bağlaraltı Mah. Cebel Cad. A163. Sok. No:2/A, Yıldırım / Bursa</li>
         <li><a href="tel:+905534715678">0553 471 56 78</a> · <a href="tel:+902244330655">0224 433 06 55</a></li>
-        <li>Hafta içi 07:45 – 18:00</li>
+        <li>Hafta içi 07:30 – 18:00</li>
         <li><a href="https://www.instagram.com/bursakozalakanaokulu/" target="_blank" rel="noopener">@bursakozalakanaokulu</a></li>
       </ul>
     </div>
@@ -832,7 +887,7 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
         src="https://maps.google.com/maps?q=%C3%96zel%20Bursa%20Kozalak%20Anaokulu%2C%20Ba%C4%9Flaralt%C4%B1%20Mah.%20A163.%20Sok.%20No%3A2%2FA%2C%20Y%C4%B1ld%C4%B1r%C4%B1m%2C%20Bursa&amp;z=16&amp;output=embed"
         loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       <div class="haritaAlt">
-        <span>Hafta içi 07:45 – 18:00 · Randevu için arayabilirsiniz</span>
+        <span>Hafta içi 07:30 – 18:00 · Randevu için arayabilirsiniz</span>
         <a class="btn btn-1" target="_blank" rel="noopener"
           href="https://www.google.com/maps/dir/?api=1&amp;destination=%C3%96zel%20Bursa%20Kozalak%20Anaokulu%2C%20Ba%C4%9Flaralt%C4%B1%20Mah.%20A163.%20Sok.%20No%3A2%2FA%2C%20Y%C4%B1ld%C4%B1r%C4%B1m%2C%20Bursa">Yol tarifi al</a>
       </div>
