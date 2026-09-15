@@ -48,6 +48,12 @@
 :root{
   /* Palet: "Kozalak Ormanı" — çam yeşili + terrakota (müşteri seçimi) */
   --c1:#1F3D2B; --c2:#4A7C59; --c3:#C08A54; --c4:#D2694A; --c5:#9DBCA8;
+  /* --c6: uzman branşı kutusu için erik moru. Palete sonradan eklendi;
+     çiplerin nth-child döngüsüne (c1–c4) girmiyor, sadece o kutuda
+     kullanılıyor — bu yüzden "dikkat çeken tek şey" olarak kalıyor.
+     Toprak tonlu palete uysun diye kırmızıya çalan, doygunluğu düşük
+     bir mor seçildi; neon menekşe bu paletin yanında yabancı duruyor. */
+  --c6:#5C3A63; --on-c6:#FFFFFF;
   --bg:#FAF7F2; --surface:#FFFFFF; --ink:#1D2620; --muted:#536157;
   --line:#E7E1D7; --on-c1:#FFFFFF; --on-c3:#1D2620; --on-c4:#2C1A10;
   --f:'Space Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -197,14 +203,17 @@ h1,h2,h3{margin:0;font-weight:700;line-height:1.02;letter-spacing:-.03em}
    Yeni branş eklenecekse çip satırının sonuna eklenir, buraya değil.
    Adın çipte ve kutu başlığında iki kez geçmesi tekrar değil —
    liste ve detayın normal ilişkisi.
-   Solda çalışma, sağda uzman. Zemin --c5 — dört çip renginin
-   hiçbiri değil, bu yüzden çiplerle yarışmıyor.
-   Kontrast: --c5 üzerinde --ink 7,47:1 (yukarıdaki denetim
-   notuna bakınız), beyaz üzerinde --muted 6,53:1.
+   Solda çalışma, sağda uzman. Zemin --c6 (erik moru): paletteki
+   hiçbir çip rengi değil ve bölümün en koyu bloğu, bu yüzden
+   doygun çiplerin arasında geri çekilmiyor — okulun isteği bu
+   branşın ayrı görünmesiydi. Sağ panel beyaz kalıyor ki uzmanın
+   adı en okunur yerde dursun.
+   Kontrast: --c6 üzerinde beyaz 9,4:1; beyaz üzerinde --ink
+   15,5:1, --muted 6,53:1 — üçü de AA'nın üstünde.
    375px'te çip iki satıra düşüyor (82px / 57px); ölçüldü,
    yatay kaydırma yapmıyor, bilerek böyle bırakıldı. */
 .uzmanlik{margin-top:30px;display:grid;grid-template-columns:1fr minmax(290px,440px);
-  background:var(--c5);color:var(--ink);border:var(--k) solid var(--ink);
+  background:var(--c6);color:var(--on-c6);border:var(--k) solid var(--ink);
   border-radius:16px;box-shadow:var(--g) var(--g) 0 var(--ink);overflow:hidden}
 .uzmanlik .dal{padding:28px 30px}
 /* Başlık dar ekranda iki satıra düşüyor; h1-h3 için genel kural olan
@@ -212,7 +221,9 @@ h1,h2,h3{margin:0;font-weight:700;line-height:1.02;letter-spacing:-.03em}
 .uzmanlik h3{font-size:clamp(20px,2.3vw,26px);text-transform:uppercase;
   line-height:1.14;margin-bottom:12px}
 .uzmanlik .dal p{font-size:16px;line-height:1.55;max-width:48ch}
-.uzmanlik .kisi{padding:28px 30px;background:var(--surface);
+/* color ZORUNLU: kutunun kendisi --on-c6 (beyaz) yazıyor; bu panelin
+   zemini beyaz olduğu için miras alınan beyaz yazı görünmez oluyor. */
+.uzmanlik .kisi{padding:28px 30px;background:var(--surface);color:var(--ink);
   border-left:var(--k) solid var(--ink);
   display:flex;flex-direction:column;justify-content:center}
 .uzmanlik .kisi b{font-size:20px;line-height:1.15;letter-spacing:-.02em}
