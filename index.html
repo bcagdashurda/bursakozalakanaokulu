@@ -188,13 +188,13 @@ h1,h2,h3{margin:0;font-weight:700;line-height:1.02;letter-spacing:-.03em}
 .cikartma a:nth-child(4n+4){background:var(--c4);color:var(--on-c4)}
 
 /* ── BRANŞ UZMANI KUTUSU ────────────────────────────────────
-   Dokuzuncu branş: adı geçen tek uzmanla yürütülen çalışma.
-   Uzmanın adı ve unvanı bir çipin içine sığmıyor, ama branş
-   çip satırından ÇIKARILMADI: satır bu bölümün branş listesi,
-   başlık da "Dokuz çalışma" diyor. Sekiz çip gösterip
-   dokuzuncuyu yalnız kutuya koymak hem sayıyı tutmuyor hem de
-   yeni branşı diğer sekizin üstünde bir yere koyuyordu.
-   Bu yüzden: çip listede, kutu altında detay olarak duruyor.
+   On ikinci branş: adı geçen tek uzmanla yürütülen çalışma.
+   Uzmanın adı ve unvanı bir çipin içine sığmadığı için bu branşın
+   ÇİPİ YOK — kutunun kendisi on ikinci sırayı tutuyor. Yani
+   başlıktaki sayı = on bir çip + bu kutu.
+   Hem çipe hem kutu başlığına yazmak aynı adı 40px arayla iki kez
+   tekrarlıyordu; kutu zaten geniş yer verdiği için çip gereksizdi.
+   Yeni branş eklenecekse çip satırının sonuna eklenir, buraya değil.
    Adın çipte ve kutu başlığında iki kez geçmesi tekrar değil —
    liste ve detayın normal ilişkisi.
    Solda çalışma, sağda uzman. Zemin --c5 — dört çip renginin
@@ -545,7 +545,10 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
     "Çoklu Zekâ Kuramı",
     "Aktif öğrenme",
     "Üstün zekâlı ve yetenekli çocukların eğitimi",
-    "Okuma yazmaya hazırlık"
+    "Okuma yazmaya hazırlık",
+    "Mental aritmetik",
+    "Çocuklar için felsefe (P4C)",
+    "Erken yaşta jimnastik"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -559,6 +562,9 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
       {"@type":"Course","name":"Müzik ve Orff Çalışmaları","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}},
       {"@type":"Course","name":"Ekoloji ve Kültürel Geziler","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}},
       {"@type":"Course","name":"Robotik Kodlama","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}},
+      {"@type":"Course","name":"Mental Aritmetik","description":"Zihinden hesap, dikkat ve odaklanma çalışmaları","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}},
+      {"@type":"Course","name":"Çocuklar için Felsefe (P4C)","description":"Soru sorma, birlikte düşünme ve akıl yürütme çalışmaları","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}},
+      {"@type":"Course","name":"Jimnastik","description":"Temel hareket becerileri, denge ve koordinasyon","provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"}},
       {"@type":"Course","name":"Üstün Zekâlı ve Yeteneklilerin Eğitimi",
        "description":"Çocuğun ilgi ve potansiyelinin erken yaşta fark edilmesi, oyun temelli destek çalışmaları.",
        "provider":{"@id":"https://bursaozelkozalakanaokulu.com/#okul"},
@@ -720,7 +726,7 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
 <section class="bolum" id="branslar"
   style="background:var(--surface);border-top:var(--k) solid var(--ink);border-bottom:var(--k) solid var(--ink)">
   <div class="kap">
-    <div class="bas" data-a="blok"><span class="et">Branşlar</span><h2>Dokuz çalışma, tek program</h2>
+    <div class="bas" data-a="blok"><span class="et">Branşlar</span><h2>On iki çalışma, tek program</h2>
       <p>Branş çalışmalarının tamamı günlük programımızın içinde yer alır.</p></div>
     <div class="cikartma">
       <a href="#iletisim" data-a="cip">İngilizce</a><a href="#iletisim" data-a="cip">Satranç</a>
@@ -730,7 +736,9 @@ footer a,.bilgi a,.bilgi li a,.ust a,.alt ul a,.altBilgi ul a,.altSag ul a,
       <a href="#iletisim" data-a="cip">Müzik &amp; Orff</a>
       <a href="#iletisim" data-a="cip">Ekoloji &amp; Kültürel Geziler</a>
       <a href="#iletisim" data-a="cip">Robotik Kodlama</a>
-      <a href="#iletisim" data-a="cip">Üstün Zekâlı ve Yeteneklilerin Eğitimi</a>
+      <a href="#iletisim" data-a="cip">Mental Aritmetik</a>
+      <a href="#iletisim" data-a="cip">Çocuklar için Felsefe (P4C)</a>
+      <a href="#iletisim" data-a="cip">Jimnastik</a>
     </div>
     <div class="uzmanlik" data-a="blok">
       <div class="dal">
